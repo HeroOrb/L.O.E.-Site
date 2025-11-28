@@ -40,7 +40,7 @@ img {
     overflow: hidden;
 }
 
-#email_label {
+#username_label {
     font-family: Arial;
     font-weight: bold;
     font-size: 20px;
@@ -62,7 +62,7 @@ img {
     display: block;
 }
 
-#email-input {
+#username-input {
     font-family: inherit;
     font-feature-settings: inherit;
     font-variation-settings: inherit;
