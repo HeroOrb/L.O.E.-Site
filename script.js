@@ -5,4 +5,4 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Button Has Been Pressed!');
         window.location.href = 'dashboard.html';
     })
-})
+});
