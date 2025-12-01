@@ -12,7 +12,9 @@ const pool = new Pool({
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'L.O.E.-Site/public')));
+app.use(express.static(__dirname, { 
+    index: 'index.html'  // Serve index.html when accessing root "/"
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
