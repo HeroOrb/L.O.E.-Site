@@ -1,7 +1,14 @@
+require('dotenv').config(); 
 const express = require('express');
 const path = require('path');
 const { PrismaClient } = require('@prisma/client');
-const { PrismaBetterSqlite3 } = require('@prisma/adapter-better-sqlite3');
+const { PrismaPg } = require('@prisma/adapter-pg');
+const { Pool } = require('pg');
+const pool = new Pool({ 
+    connectionString: process.env.LOE_PRISMA_DATABASE_URL 
+});
+  const adapter = new PrismaPg(pool);
+  const prisma = new PrismaClient({ adapter });
 
 const app = express();
 
@@ -9,9 +16,6 @@ app.use(express.static(path.join(__dirname, 'L.O.E.-Site')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-const adapter = new PrismaBetterSqlite3({ url: 'file:./dev.db' });
-const prisma = new PrismaClient({ adapter });
 
 app.post('/api/login', async (req, res) => {
     try {
