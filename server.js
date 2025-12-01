@@ -12,7 +12,7 @@ const pool = new Pool({
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'L.O.E.-Site')));
+app.use(express.static(path.join(__dirname, 'L.O.E.-Site/public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
